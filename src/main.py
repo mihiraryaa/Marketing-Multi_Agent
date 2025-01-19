@@ -6,8 +6,8 @@ from langgraph.checkpoint.memory import MemorySaver
 memory=MemorySaver()
 from langchain_community.tools.tavily_search import TavilySearchResults
 tavily_tool = TavilySearchResults(
-    max_results=3,          # Maximum number of results to return
-    search_depth="advanced", # Level of search depth
+    max_results=3,          
+    search_depth="advanced", 
 )
 
 '''
@@ -65,7 +65,7 @@ def campaign_ideas_agent(state:AgentState):
     user=HumanMessage(content=f"#COMPANY REPORT:\n {research['company_report']}\n\n\n#PROJECT UNDERSTANDING:\n{research['project_understanding']}\n\n\n#MARKETING STRATEGY:\n{strategy}")
     model=model_llama.with_structured_output(campaign_ideas)
     ideas=model.invoke([system,user])
-    print(ideas)
+    #print(ideas)
     return {"ideas": ideas.ideas}
 
 def campaign_planner_agent(state:AgentState):
@@ -90,7 +90,7 @@ def content_creation_agent(state:AgentState):
         user=HumanMessage(content=f"#COMPANY REPORT:\n {report}\n\n\n#CAMPAIGN PLAN:\n{camp}")
         content=model_llama.invoke([system,user])
         contents.append(content.content)
-        print(content.content)
+        #print(content.content)
     
     return {"contents": contents}
 
@@ -98,7 +98,7 @@ def write(strategy:str, campaigns:list[str], contents:list[str]):
     file_path="outputs/Marketing_strategy.md"
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(strategy)
-    nos=1
+        
     for nos in range(len(contents)):
         file_path=f"outputs/campaigns/campaign_{nos+1}.md"
         with open(file_path, "w",encoding="utf-8") as f:
@@ -116,13 +116,7 @@ def output(state: AgentState):
     write(strategy,campaigns, contents)
     print(f"company report:\n{comp_report}\n\n\n\nProject Understanding:\n{project_understanding}")
     print(f'\n\n\nMarketing Strategy: \n{strategy}')
-    print("\n\n\n\nCampaigns:\n\n")
-
-    for event in campaigns:
-        print(event)
-        print('#'*150)
-    return {"output": ""}
-
+    
 
 
 
@@ -148,6 +142,7 @@ workflow=workflow.compile()
 
 
 input={"inputs": user_query, "research": {}}
+
 
 for event in workflow.stream(input):
     print(event)
