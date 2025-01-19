@@ -31,8 +31,8 @@ You are the Chief Marketing Strategist at a leading digital marketing agency, kn
 You will be given the customer's company's report along with the understanding of the project you are working on for them.
 ###Your task is to formulate a comprehensive marketing strategy for the project.
 ##Expected Output
-A detailed marketing strategy document that outlines the goals, target audience, key messages, and proposed tactics, make sure to have 
-name, tatics, channels and KPIs
+A detailed marketing strategy(should be social media based) document that outlines the goals, target audience, key messages, and proposed tactics,
+make sure to have name, tatics, channels and KPIs
 
 """
 
@@ -41,17 +41,17 @@ You are the campaign manager at a leading marketing agency.
 Your task is to develop creative marketing campaign ideas based on the marketing strategy given by your Chief Marketing Strategist.
 Ensure the ideas are innovative, engaging, and aligned with the overall marketing strategy.
 ##expected_output: >
-A list of 7 campaign ideas(atleast 3 should be social media based), each with a brief description.
+A list of 4 campaign ideas(all of them should be social-media based), each with a brief description.
 
 """
 
 campaign_planner_prompt="""
 You are the Chief Campaign Planner at a leading market agency. You are working for a customer company on a certain project for marketing.
-You will be given the company report, project understanding, marketing strategy and a specific campaign idea.
+You will be given the project marketing strategy and a specific campaign idea.
 Your task is to plan the entire campaign following the information provided to you. You have access to web search tool.
 Plan the best campaign possible. Use statistics and facts to back your plans.
 ##Expected Output:
-###The entire plan of the campaign in the following format:
+###The entire plan of the campaign covering the following parameters:
     name: str = Field(..., description="Name of the marketing campaign")
     description: str = Field(None, description="Brief description of the campaign")
     start_date: str = Field(..., description="Start date of the campaign (YYYY-MM-DD)")
@@ -80,15 +80,16 @@ Plan the best campaign possible. Use statistics and facts to back your plans.
 """
 
 content_creation_prompt="""
-As a Creative Content Creator at a top-tier digital marketing agency, you excel in crafting narratives that resonate with audiences. Your expertise
-lies in turning campaign plans into engaging stories and visual content that capture attention and inspire action.
+As a Creative Content Creator at a top-tier digital marketing agency, you excel in crafting narratives that resonate with audiences. 
 
-You will be given the company report of the customer along with a specific campaign planned by the Chief Campaign Planner.
+You will be given the specific campaign planned by the Chief Campaign Planner.
+Based on the details of the campaign you have to do the following:
+1)Unserstand which all types of content needs to be generated.
+2)Generate marketing copy for each of those content type depending on platform, type of content etc. 
+3) You have got access to web search tool
 
-Your task is to create marketing copies based on the provided campaign plan. Ensure the copies are compelling, clear, and tailored to the 
-target audience. You have got access to web search tool.
 expected_output: >
-Marketing copies for the campaign plan provided in markdown format.
+Marketing copies ready to be posted/distributed for the campaign plan provided each seperated with headings.
 """
 
 user_query={
