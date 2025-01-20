@@ -6,8 +6,9 @@ from langgraph.checkpoint.memory import MemorySaver
 memory=MemorySaver()
 from langchain_community.tools.tavily_search import TavilySearchResults
 tavily_tool = TavilySearchResults(
-    max_results=3,          # Maximum number of results to return
-    search_depth="advanced", # Level of search depth
+    max_results=3,          
+    search_depth="advanced",
+    api_key=TAVILY_API_KEY
 )
 
 '''
