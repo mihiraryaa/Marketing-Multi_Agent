@@ -92,15 +92,4 @@ expected_output: >
 Marketing copies ready to be posted/distributed for the campaign plan provided each seperated with headings.
 """
 
-user_query={
-"name": "crewai.com",
-
-"project_des": """
-CrewAI, a leading provider of multi-agent systems, aims to revolutionize marketing automation for its enterprise clients. 
-This project involves developing an innovative marketing strategy to showcase CrewAI's advanced AI-driven solutions, emphasizing ease of use, 
-scalability, and integration capabilities. The campaign will target tech-savvy decision-makers in medium to large enterprises, 
-highlighting success stories and the transformative potential of CrewAI's platform. Budget range is from $10000-$25000.
-
-"""}
-
 
