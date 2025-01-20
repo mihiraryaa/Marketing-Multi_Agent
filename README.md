@@ -1,55 +1,90 @@
-# Multi-Agent Marketing System 🚀
+# Marketing using AI Agents 🚀
 
 ## Overview
-This repository contains a **multi-agent system for automated marketing**, built using **LangGraph**. The system leverages **React agents** that collaboratively plan, execute, and evaluate marketing campaigns. The agents utilize real-time **Tavily web search** to ensure access to the latest information and provide cutting-edge strategies for campaign design. The system also supports API integration for enhanced functionality, and API keys are stored securely in environment variables.
+This project is designed to revolutionize marketing strategy using AI Agents . Built using LangGraph, this system leverages multiple specialized agents to perform key tasks like company research, project planning, content creation, and campaign generation. By integrating Tavily for real-time web search and utilizing powerful LLMs like LLaMA 3.3 70B through Groq for faster inference, this system ensures cutting-edge performance and up-to-date insights. Whether it's developing marketing strategies or generating comprehensive campaign content, the system empowers businesses with automation, scalability, and unparalleled intelligence.
 
----
-
+<br> <br>
 ## Features
-- **React Agents**: Dynamically reason and take actions based on given inputs.
+- **React Agents**: Dynamically reason and take actions based on the situation.
 - **Multi-Agent Collaboration**: Agents work in tandem to handle different aspects of marketing campaigns such as planning, content creation, and market analysis.
 - **Tavily Web Search Integration**: Provides real-time information retrieval capabilities to keep the campaigns up-to-date.
-- **Custom Templates and Prompts**: Tailored campaign creation with adjustable inputs.
+- **Fast Inference**: Uses the LLaMA 3.3 70B model via Groq cloud for faster and accurate reasoning and response generation.
 - **Structured Output**: Campaign plans are generated as markdown files (one file per campaign) for better readability and documentation.
-- **API Integration**: Works seamlessly with third-party services using secure environment-based API keys.
+  You can check out the sample output in the ```sample_output``` folder.
 
----
+<br>
 
-## Technical Details
-
-### System Design
-- **Framework**: Built with **LangGraph**, a tool for designing stateful multi-agent systems.
-- **Output**: Campaigns are generated as structured markdown files.
-- **Model**: Uses **LLaMA 3.3 70B** via **Groq** for faster inference and high throughput.
 
 ### Agent Types
-| **Agent Type**         | **Description**                                                                 |
+| **Agent**         | **Description**                                                                 |
 |-------------------------|---------------------------------------------------------------------------------|
-| **Campaign Planner**    | Designs strategic marketing campaigns, including targeting and messaging.       |
-| **Content Creation**    | Generates creative assets like social media posts, blogs, or ad copy.          |
 | **Research Agent**      | Collects real-time information and analyzes market trends using Tavily.         |
-| **Campaign Evaluator**  | Reviews and refines campaigns to improve performance and outcomes.              |
+| **Company Researcher**      | gathers and analyzes company-specific data to provide insights for informed decision-making in marketing strategies.|
+| **Strategy Planner**    |  Plans the overall marketing strategy based on which the campaigns are designed        |
+| **Campaign Planner**    | Designs strategic marketing campaigns, including targeting and messaging.       |
+| **Content Creation**    | Generates creative assets like social media posts, blogs, or ad copy for each campaign        |
 
 ---
 
-## Workflow
-1. **Initial Input**: Takes user inputs such as company details and project description.
-2. **Agent Collaboration**: Each agent performs a specialized task as part of the campaign.
-3. **Tavily Web Search**: Ensures campaigns are created with the latest and most relevant data.
-4. **Output**: Campaign plans are saved as markdown files for better documentation.
-
 ---
+<br><br>   
+## Installation Guide
 
-## Setup Instructions
+Follow the steps below to set up and use the Marketing Multi-Agent system locally:
 
-### Prerequisites
-1. Python >= 3.8
-2. API keys for:
-   - [OpenAI](https://openai.com/api)
-   - [Tavily](https://www.tavily.io)
+#### 1. Clone the Repository
+Use Git to clone the repository to your local machine:
+```bash
+git clone https://github.com/mihiraryaa/Marketing-Multi_Agent.git
+cd Marketing-Multi_Agent
+```
 
-### Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/multi-agent-marketing-system.git
-   cd multi-agent-marketing-system
+### 2. Set Up Virtual Environment
+Create and activate a Python virtual environment:
+```bash
+# Create a virtual environment
+python -m venv env
+
+# Activate the environment (use the command corresponding to your OS)
+# On Windows
+env\Scripts\activate
+# On macOS/Linux
+source env/bin/activate
+```
+### 3. Install Dependencies
+Install all required libraries specified in requirements.txt:
+```bash
+pip install -r requirements.txt
+```
+### 4. Configure the Environment Variables
+The project uses environment variables for secure API key management.
+Copy ```.env.example```to ```.env``` and update the placeholder values with your API keys:
+```bash
+cp .env.example .env
+```
+
+### 5. Set Up Input Configuration
+Navigate to the ```src/config``` directory.
+Open input.yaml and modify it to match your marketing project details. Example
+
+```yaml
+company_name:
+   <input_company_name>
+project_description: 
+   <input_project_details>
+```
+### 6. Run the System
+Start the marketing multi-agent system by running:
+```bash
+python src/main.py
+```
+
+### 7. View the Outputs
+The overall marketing strategy and the generated campaigns will be saved as markdown files in the ```src/outputs/``` directory.
+
+### Notes
+1. Using .env vs System Environment Variables: If you prefer storing your API keys in the system environment variables, make sure they are properly configured before running the system. The .env setup is optional and is for convenience.
+
+2. Tavily API Setup: The system uses Tavily for web search.Ensure the TAVILY_API_KEY is valid and has sufficient permissions for advanced searches.
+
+3. Groq rate limits: This system uses Llama 3.3 (70B), hosted via Groq cloud, which has token limits. Refer https://console.groq.com/settings/limits for more information.
