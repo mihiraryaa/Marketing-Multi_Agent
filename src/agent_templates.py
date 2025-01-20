@@ -52,3 +52,10 @@ def research_agent(messages: list[AnyMessage])-> str:
     result=workflow.invoke(input)
     return result["messages"][-1].content
 
+
+
+#user query from input.yaml
+with open("config/input.yaml","r", encoding="utf-8") as file:
+    user_query=yaml.safe_load(file)
+
+print(user_query)
