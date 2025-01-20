@@ -5,7 +5,7 @@ warnings.filterwarnings("ignore")
 
 from typing import List, Optional
 from pydantic import BaseModel,Field
-
+import yaml
 
 #langchain setup
 from langchain_openai import ChatOpenAI
