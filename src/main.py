@@ -63,7 +63,7 @@ def campaign_ideas_agent(state:AgentState):
     user=HumanMessage(content=f"#COMPANY REPORT:\n {research['company_report']}\n\n\n#PROJECT UNDERSTANDING:\n{research['project_understanding']}\n\n\n#MARKETING STRATEGY:\n{strategy}")
     model=model_llama.with_structured_output(campaign_ideas)
     ideas=model.invoke([system,user])
-    print(ideas)
+    #print(ideas)
     return {"ideas": ideas.ideas}
 
 def campaign_planner_agent(state:AgentState):
@@ -88,7 +88,7 @@ def content_creation_agent(state:AgentState):
         user=HumanMessage(content=f"#CAMPAIGN PLAN:\n{camp}")
         content=model_llama.invoke([system,user])
         contents.append(content.content)
-        print(content.content)
+        #print(content.content)
     
     return {"contents": contents}
 
@@ -152,3 +152,4 @@ for event in workflow.stream(input):
     print('-'*165)
 
 
+print("Marketing strategy and campaigns saved in the 'outputs' folder!!!")
