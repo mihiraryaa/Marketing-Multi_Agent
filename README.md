@@ -44,11 +44,15 @@ Create and activate a Python virtual environment:
 ```bash
 # Create a virtual environment
 python -m venv env
+```
+Activate the environment (use the command corresponding to your OS) 
 
-# Activate the environment (use the command corresponding to your OS)
-# On Windows
+On Windows:
+```bash
 env\Scripts\activate
-# On macOS/Linux
+```
+On macOS/Linux:
+```bash
 source env/bin/activate
 ```
 ### 3. Install Dependencies
