@@ -28,10 +28,15 @@ from langchain_community.tools.tavily_search import TavilySearchResults
 
 
 
-#all the models
-model_openai=ChatOpenAI(model="gpt-4o-mini", temperature=1)
-model_llama=ChatGroq(model="llama-3.3-70b-versatile")
 
 
 
+#loading environment variables
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
+TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
+GROQ_API_KEY=os.getenv("GROQ_API_KEY")
+
+model_llama=ChatGroq(model="llama-3.3-70b-versatile", api_key=GROQ_API_KEY)
