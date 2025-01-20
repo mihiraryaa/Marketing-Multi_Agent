@@ -1,23 +1,4 @@
 
-'''
-#RAG imports
-import bs4
-from uuid import uuid4
-from langchain_community.document_loaders import WebBaseLoader
-from langchain_community.document_loaders import PyPDFLoader, PyPDFDirectoryLoader
-from langchain_community.document_loaders import DirectoryLoader
-
-
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-
-from langchain_pinecone import PineconeVectorStore
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-
-'''
-
-
-
-
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -50,9 +31,7 @@ from langchain_community.tools.tavily_search import TavilySearchResults
 #all the models
 model_openai=ChatOpenAI(model="gpt-4o-mini", temperature=1)
 model_llama=ChatGroq(model="llama-3.3-70b-versatile")
-model_llama2=ChatGroq(model="llama-3.3-70b-specdec")
-model_llama=model_openai
-model_llama_vision=ChatGroq(model="llama-3.2-11b-vision-preview")
+
 
 
 
