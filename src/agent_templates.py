@@ -58,4 +58,4 @@ def research_agent(messages: list[AnyMessage])-> str:
 with open("config/input.yaml","r", encoding="utf-8") as file:
     user_query=yaml.safe_load(file)
 
-print(user_query)
+
