@@ -11,9 +11,6 @@ tavily_tool = TavilySearchResults(
     api_key=TAVILY_API_KEY
 )
 
-'''
-company_research_agent, project_research_agent,  marketing_strategy_report,  generate campaigns adhering report, content creation
-'''
 def call_model(prompt, model=model_llama):
     res=model.invoke(prompt)
     return res
