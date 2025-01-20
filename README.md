@@ -76,7 +76,8 @@ project_description:
 ### 6. Run the System
 Start the marketing multi-agent system by running:
 ```bash
-python src/main.py
+cd src
+python main.py
 ```
 
 ### 7. View the Outputs
